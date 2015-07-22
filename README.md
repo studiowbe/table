@@ -1,4 +1,4 @@
-# html
+# Table
 A helper package for generating HTML tables
 
 ## Usage
