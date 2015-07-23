@@ -74,11 +74,17 @@ class Table
      * @param string $label
      * @param mixed $handlers
      * @param array $attributes
+     * @param bool $sortable
      * @return \Studiow\Table\Table
      */
-    public function createColumn($id, $label, $handlers, array $attributes = [])
+    public function createColumn($id, $label, $handlers, array $attributes = [], $sortable = false)
     {
         $column = new Column\DefaultColumn($id, $label, $handlers, $attributes);
+        if ($sortable) {
+            $column = new Column\SortableColumn($id, $label, $handlers, $attributes);
+        } else {
+            $column = new Column\DefaultColumn($id, $label, $handlers, $attributes);
+        }
         $this->addColumn($column);
         return $this;
     }
