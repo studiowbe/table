@@ -104,7 +104,7 @@ abstract class AbstractColumn implements ColumnInterface
             if (is_array($rowData) || $rowData instanceof \ArrayAccess) {
                 return array_key_exists($handler, $rowData) ? $rowData[$handler] : null;
             }
-            if (array_key_exists($handler, get_object_vars($object))) {
+            if (array_key_exists($handler, get_object_vars($rowData))) {
                 return $rowData->$handler;
             }
             $getter = "get" . implode('', array_map('ucfirst', explode('_', $handler)));

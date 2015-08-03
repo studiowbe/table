@@ -16,7 +16,9 @@ class SortableColumn extends AbstractColumn
 
     public function setLabel($label)
     {
+       
         if (is_null($this->label)){
+            
             $this->label = new Element('a', $label, ['class'=>'sortable-link']);
         }
         return $this;
