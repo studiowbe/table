@@ -12,8 +12,31 @@ abstract class AbstractColumn implements ColumnInterface
 
     use \Studiow\HTML\HasAttributesTrait;
 
-    protected $id, $label, $handlers;
+    /**
+     *
+     * @var string Column ID 
+     */
+    protected $id;
+    
+    /**
+     *
+     * @var string Column label 
+     */
+    protected $label;
+    
+    /**
+     *
+     * @var mixed Handlers for all subcolumns
+     */
+    protected $handlers;
 
+    /**
+     * 
+     * @param string $id Column ID
+     * @param string $label Column label
+     * @param mixed $handlers Handlers for all subcolumns
+     * @param array $attributes
+     */
     public function __construct($id, $label, $handlers, array $attributes = [])
     {
         $this->setId($id)
