@@ -5,12 +5,42 @@ namespace Studiow\Table;
 class TableSorter
 {
 
+    /**
+     *
+     * @var Table 
+     */
     protected $table;
+    
+    /**
+     *
+     * @var string 
+     */
     protected $sortFieldName = 'orderby';
+    
+    /**
+     *
+     * @var string 
+     */
     protected $sortOrderName = 'order';
+    
+    /**
+     *
+     * @var string 
+     */
     protected $sortFieldDefault;
+    
+    /**
+     *
+     * @var string 
+     */
     protected $sortOrderDefault;
 
+    /**
+     * 
+     * @param \Studiow\Table\Table $table
+     * @param string $sortFieldDefault
+     * @param string $sortOrderDefault
+     */
     public function __construct(Table $table = null, $sortFieldDefault = null, $sortOrderDefault = 'asc')
     {
         $this->setTable(($table instanceof Table) ? $table : new Table())
@@ -124,6 +154,10 @@ class TableSorter
         }
     }
 
+    /**
+     * 
+     * @param \Studiow\Table\Column\SortableColumn $column
+     */
     private function handleColumn(Column\SortableColumn $column)
     {
         $column->addClass('sortable');

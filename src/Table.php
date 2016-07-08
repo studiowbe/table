@@ -7,16 +7,43 @@ use Studiow\Table\RendererInterface;
 use Studiow\HTML\Attributes;
 use Studiow\Table\Renderer\DefaultRenderer;
 
+/**
+ * A helper package for generating HTML tables
+ */
 class Table
 {
 
     use \Studiow\HTML\HasAttributesTrait;
 
+    /**
+     *
+     * @var array Columns of the table
+     */
     protected $columns = [];
+    
+    /**
+     *
+     * @var array Rows of the table
+     */
     protected $rows = [];
+    
+    /**
+     *
+     * @var RendererInterface Renderer
+     */
     protected $renderer;
+    
+    /**
+     *
+     * @var string Text which will be shown if the table is empty
+     */
     protected $emptyText;
 
+    /**
+     * 
+     * @param array $attributes
+     * @param RendererInterface $renderer
+     */
     public function __construct(array $attributes = [], RendererInterface $renderer = null)
     {
         $this->setAttributes(new Attributes($attributes));
